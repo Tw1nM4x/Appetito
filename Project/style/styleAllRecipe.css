@@ -9,8 +9,8 @@
     font-weight: 400;
     letter-spacing:0.017em;
 }
-img { 
-    pointer-events: none; 
+img {
+    pointer-events: none;
 }
 body {
     margin: 0;
@@ -211,7 +211,9 @@ body {
     width: 15vw;
     height: 2vw;
     font-size: 1vw;
+    border-radius: 20px;
 }
+placeholder {margin-left: 10px}
 
 @media only screen and (max-width: 1700px) {
     .recipeReady {

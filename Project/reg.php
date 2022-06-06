@@ -47,9 +47,9 @@ $sql = "INSERT INTO `users` (`name`, `mail`, `avatar`, `pass`, `confirmed`, `tok
 $_SESSION['auth'] = true;
 
 $message = 'Привет, ' . $name . '! Для подтверждения вашей почты перейдите по ./confirmed.php?token=' . $token . '';
-mail("$mail", 'Подтвердите ваш email', $message, 'From: travelagencyadventure@gmail.com');
+mail("$mail", 'Подтвердите ваш email', $message, 'From: m105407@m105407.hostru07.fornex.host');
 
 $conn->query($sql);
 $conn->close();
-header('Location: /confirmed.php');
+header('Location: /');
 ?>

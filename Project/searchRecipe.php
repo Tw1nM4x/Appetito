@@ -505,7 +505,7 @@ $SelectedIng = '';
 				let boxFood = document.querySelector('#boxFood');
 				localStorage.setItem('boxFood', boxFood.scrollTop);
 				if(auth == 0){
-					if(ingredient.src == './images/no.png'){
+					if(ingredient.src == 'https://buonappetito.site/images/no.png'){
 						ingredients = ingredients+","+id+",";
 					}
 					else{

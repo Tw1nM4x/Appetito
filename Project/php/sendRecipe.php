@@ -54,7 +54,7 @@ for($i = 1; $i <= $countOfSteps; $i++){
   <script>
     if(sessionStorage.getItem('ingredients') != null){
       if(sessionStorage.getItem('inventory') != null){
-          alert ('Ваш рецепт успешно добавлен!');
+          alert ('Ваш рецепт успешно добавлен! Ожидайте подтверждения от администратора.');
           let countOfSteps = sessionStorage.getItem('steps');
           let inventory = sessionStorage.getItem('inventory');
           let ingredients = sessionStorage.getItem('ingredients');
@@ -83,7 +83,7 @@ for($i = 1; $i <= $countOfSteps; $i++){
 
           sessionStorage.clear();
 
-          location.href = '../recipe.php?id='+document.getElementById('id').innerHTML;
+          location.href = '../allrecipe.php';
       }else{
         alert('Добавьте кухонные принадлежности!');
         window.history.back();

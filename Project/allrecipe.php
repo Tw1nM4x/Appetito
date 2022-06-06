@@ -140,9 +140,9 @@ $SelectedIng = '';
 								break;
 							case "5":
 								if($kitchen=="Любое" || $kitchen=="")
-									$query = mysqli_query($conn, "SELECT * FROM `recipes` ORDER BY `id`");
+									$query = mysqli_query($conn, "SELECT * FROM `recipes` ORDER BY `id` DESC");
 								else
-									$query = mysqli_query($conn, "SELECT * FROM `recipes` WHERE `kitchen` = '$kitchen' ORDER BY `id`");
+									$query = mysqli_query($conn, "SELECT * FROM `recipes` WHERE `kitchen` = '$kitchen' ORDER BY `id` DESC");
 								break;
 							default :
 								if($kitchen=="Любое" || $kitchen=="")
@@ -158,6 +158,7 @@ $SelectedIng = '';
 								if($hours > 0 && $hours < 10) $hours = '0'.$hours;
 								$minutes = $time % 60;
 								if($minutes > 1 && $minutes < 10) $minutes = '0'.$minutes;
+								if($minutes == 0) $minutes = '00';
 								if($recipe['confirmed']==1) echo '
 								<ing>
                   					<div onmouseover = "hoverOnRecipe ('.$recipe['id'].')" onmouseout = "hoverOffRecipe ('.$recipe['id'].')" id = "recipeReady'.$recipe['id'].'" class = "recipeReady" style="display:flex;" onclick="GoToRecipe(' . $recipe['id'] . ')">

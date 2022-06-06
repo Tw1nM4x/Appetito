@@ -39,6 +39,8 @@ session_start(); ?>
 		$query = mysqli_query($conn, "SELECT * FROM `recipes` WHERE `id`=$id");
 		$recipe = mysqli_fetch_assoc($query);
 
+		if($recipe['name']){
+
 		$user = $recipe['author'];
 		$query = mysqli_query($conn, "SELECT * FROM `users` WHERE `mail`='$user'");
 		$author = mysqli_fetch_assoc($query);
@@ -282,10 +284,10 @@ session_start(); ?>
 												<div class = "messenger">' . $rev . '</div>
 											</div>';
 
-										echo (' <div class = "editFidback">
-											<a class = "znak_edit" href="edit.php?id='.$id.'">&#9998;</a>
-											<a class = "znak_edit" href="del.php?id='.$id.'">&#9746;</a>
-										</div>');
+										if($_SESSION['mail']=='appetito@mail.ru' || $_SESSION['mail']==$user['mail'])
+										echo ' <div class = "editFidback">
+											<img src = "images/shoppingList/off.png" style="cursor:pointer; width:3vw; height:3vw; pointer-events: auto;" class = "znak_edit" onclick="Delete(&#039;'.$rev.'&#039;,&#039;'.$user['mail'].'&#039;,&#039;'.$recipe['id'].'&#039;);">
+										</div>';
 
 										echo '
 										</div>';
@@ -305,6 +307,9 @@ session_start(); ?>
 					function GoChange(id){
 						location.href='./changerecipe.php?id='+id;
 					}
+					function Delete(massage,mail,id){
+						$.post('del.php', {'massage':massage, 'mail':mail, 'id':id}, function() {location.reload();});
+					}
 				</script>
 
 
@@ -313,3 +318,4 @@ session_start(); ?>
 					?>
 
     </body>
+	<?php } ?>
